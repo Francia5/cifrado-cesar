@@ -31,3 +31,22 @@ function cipher(phrase){ // Con esta funcion cifraremos la frase ingresada por e
 
     document.write("Tu frase cifrada es " + str); //Imprimimos en la pantalla la frase cifrada para el usuario que guardamos en la variable str.
 }
+
+  function decipher(cipher){
+    var str= "";
+      for (var i = 0; i < phrase.length; i++) {
+        var codeNumber = phrase.charCodeAt(i);
+        var letterMay = (((codeNumber + 65 - 33) % 26)+ 65);
+        var letterMin = (((codeNumber + 85 - 33) % 26)+ 97);
+
+          if (codeNumber >= 65 && codeNumber <= 90) {
+            str += String.fromCharCode(letterMay);
+
+          } else {
+            (codeNumber >= 97 && codeNumber <= 122)
+            str += String.fromCharCode(letterMin);
+          }
+      }
+
+      document.write("Tu frase descifrada es " + str);
+  }
